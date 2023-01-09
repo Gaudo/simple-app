@@ -1,4 +1,4 @@
-(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const o of document.querySelectorAll('link[rel="modulepreload"]'))i(o);new MutationObserver(o=>{for(const n of o)if(n.type==="childList")for(const s of n.addedNodes)s.tagName==="LINK"&&s.rel==="modulepreload"&&i(s)}).observe(document,{childList:!0,subtree:!0});function r(o){const n={};return o.integrity&&(n.integrity=o.integrity),o.referrerpolicy&&(n.referrerPolicy=o.referrerpolicy),o.crossorigin==="use-credentials"?n.credentials="include":o.crossorigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function i(o){if(o.ep)return;o.ep=!0;const n=r(o);fetch(o.href,n)}})();const Ji="modulepreload",Gi=function(e){return"/"+e},Ge={},Zi=function(t,r,i){if(!r||r.length===0)return t();const o=document.getElementsByTagName("link");return Promise.all(r.map(n=>{if(n=Gi(n),n in Ge)return;Ge[n]=!0;const s=n.endsWith(".css"),d=s?'[rel="stylesheet"]':"";if(!!i)for(let h=o.length-1;h>=0;h--){const c=o[h];if(c.href===n&&(!s||c.rel==="stylesheet"))return}else if(document.querySelector(`link[href="${n}"]${d}`))return;const l=document.createElement("link");if(l.rel=s?"stylesheet":Ji,s||(l.as="script",l.crossOrigin=""),l.href=n,document.head.appendChild(l),s)return new Promise((h,c)=>{l.addEventListener("load",h),l.addEventListener("error",()=>c(new Error(`Unable to preload CSS for ${n}`)))})})).then(()=>t())};/**
+(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const o of document.querySelectorAll('link[rel="modulepreload"]'))i(o);new MutationObserver(o=>{for(const n of o)if(n.type==="childList")for(const s of n.addedNodes)s.tagName==="LINK"&&s.rel==="modulepreload"&&i(s)}).observe(document,{childList:!0,subtree:!0});function r(o){const n={};return o.integrity&&(n.integrity=o.integrity),o.referrerpolicy&&(n.referrerPolicy=o.referrerpolicy),o.crossorigin==="use-credentials"?n.credentials="include":o.crossorigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function i(o){if(o.ep)return;o.ep=!0;const n=r(o);fetch(o.href,n)}})();const Ji="modulepreload",Gi=function(e){return"/simple-app/"+e},Ge={},Zi=function(t,r,i){if(!r||r.length===0)return t();const o=document.getElementsByTagName("link");return Promise.all(r.map(n=>{if(n=Gi(n),n in Ge)return;Ge[n]=!0;const s=n.endsWith(".css"),d=s?'[rel="stylesheet"]':"";if(!!i)for(let h=o.length-1;h>=0;h--){const c=o[h];if(c.href===n&&(!s||c.rel==="stylesheet"))return}else if(document.querySelector(`link[href="${n}"]${d}`))return;const l=document.createElement("link");if(l.rel=s?"stylesheet":Ji,s||(l.as="script",l.crossOrigin=""),l.href=n,document.head.appendChild(l),s)return new Promise((h,c)=>{l.addEventListener("load",h),l.addEventListener("error",()=>c(new Error(`Unable to preload CSS for ${n}`)))})})).then(()=>t())};/**
  * @license
  * Copyright 2019 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
@@ -1164,7 +1164,7 @@ found at http://polymer.github.io/PATENTS.txt
             </ul>
           </sl-card>
 
-          <sl-button href="${"/"}about" variant="primary">Navigate to About</sl-button>
+          <sl-button href="${"/simple-app"}about" variant="primary">Navigate to About</sl-button>
         </div>
 
         <pwa-install>Install PWA Starter</pwa-install>
@@ -1219,7 +1219,7 @@ found at http://polymer.github.io/PATENTS.txt
       <header>
 
         <div id="back-button-block">
-          ${this.enableBack?yt`<sl-button href="${"/"}">
+          ${this.enableBack?yt`<sl-button href="${"/simple-app"}">
             Back
           </sl-button>`:null}
 
@@ -1264,11 +1264,11 @@ found at http://polymer.github.io/PATENTS.txt
           opacity: 1;
         }
       }
-    `}constructor(){super()}firstUpdated(){var t;new H((t=this.shadowRoot)==null?void 0:t.querySelector("#routerOutlet")).setRoutes([{path:"/",animate:!0,children:[{path:"",component:"app-home"},{path:"about",component:"app-about",action:async()=>{await Zi(()=>import("./app-about-a974be7d.js"),[])}}]}])}render(){return yt`
+    `}constructor(){super()}firstUpdated(){var t;new H((t=this.shadowRoot)==null?void 0:t.querySelector("#routerOutlet")).setRoutes([{path:"/simple-app",animate:!0,children:[{path:"",component:"app-home"},{path:"about",component:"app-about",action:async()=>{await Zi(()=>import("./app-about-22f705a6.js"),[])}}]}])}render(){return yt`
       <div>
         <main>
           <div id="routerOutlet"></div>
         </main>
       </div>
     `}};Zr=cs([Be("app-index")],Zr);export{is as a,Be as e,Wt as i,F as s,yt as y};
-//# sourceMappingURL=index-186d1dbf.js.map
+//# sourceMappingURL=index-353a68b5.js.map
